@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="CreateTable.css" />
+    <script language=javascript src=CreateTable.js ></script>
+    <style  type="text/css">
+    </style>
+</head>
+<body>
+    <div id="create-table">
+        <table id="tab-create-table">
+            <tr class="jq-head">
+                <td>列名称</td>
+                <td>列类型</td>
+                <td>主键</td>
+                <td></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" value="" jq-name=""  />
+                </td>
+                <td>
+                    <input type="text" value="" jq-name=""  />
+                </td>
+                <td> 
+                    <select jq-name="isPrimaryKey">
+                        <option >是</option>
+                        <option selected="selected">否</option>
+                    </select>
+                </td> 
+                <td>
+                    <input type="text" value="" jq-name=""  />
+                </td>
+                <td>
+                    <a onclick="addRow();">+</a>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <input id="btnSave" type="button" value="save" />
+</body>
+</html>

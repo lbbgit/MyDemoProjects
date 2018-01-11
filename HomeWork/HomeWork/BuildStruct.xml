@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Web>
+    <mix>
+        <Platform>
+            <Table></Table>
+            <RandomTable View="" Delete="" Edit="" Add=""></RandomTable>
+            <List>
+                <list2js></list2js>
+            </List>
+            <Form>
+                <Form2Form></Form2Form>
+            </Form>
+        </Platform>
+    </mix>
+    <mixJavaScript>
+        <common>
+            <xml>
+                <crete></crete>
+                <http></http>
+            </xml>
+            <FORM>
+                
+            </FORM>
+            <LIST>
+                
+            </LIST>
+            <Tree>
+                
+            </Tree>
+        </common>
+    </mixJavaScript>
+    <mind>
+        <thing came="" from="" nothing=""></thing>
+        <you are="" nots="" Design="" and="" UI=""></you>
+    </mind>
+</Web>
