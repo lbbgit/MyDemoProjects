@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> console </title>
+
+<style>
+body{
+	margin:0;
+	overflow:hidden;
+  background:#000;
+}
+
+#c{
+	width:100%;
+	height:100vh;
+}
+</style>
+</head>
+<body>
+
+<canvas id=c></canvas>
+<script>
+// JavaScript Document
+function loadjscssfile(filename,filetype){
+
+    if(filetype == "js"){
+        var fileref = document.createElement('script');
+        fileref.setAttribute("type","text/javascript");
+        fileref.setAttribute("src",filename);
+    }else if(filetype == "css"){
+    
+        var fileref = document.createElement('link');
+        fileref.setAttribute("rel","stylesheet");
+        fileref.setAttribute("type","text/css");
+        fileref.setAttribute("href",filename);
+    }
+   if(typeof fileref != "undefined"){
+        document.getElementsByTagName("head")[0].appendChild(fileref);
+    } 
+}
+
+var ipt="console";
+while(ipt){
+  ipt=prompt('Load Js');
+  //console.log(ipt);
+  loadjscssfile(ipt+".js","js");
+}
+
+//loadjscssfile("do.js","js");
+//loadjscssfile("test.css","css");
+/*
+@charset "utf-8";
+@import url("menu.css");
+@import url("../gundong.css");
+body{
+    background-color:gray;
+}
+*/
+</script>
+<script src="console.js" type="text/JavaScript"/> 
+
+</body>
+</html>
