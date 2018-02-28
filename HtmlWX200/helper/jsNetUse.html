@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://sword-direct38.yytou.cn:8086/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- to avoid the warning of content security policy -->
+  <!--meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"/-->
+
+<script>
+  // fix wp8 view port issue, see:
+  // https://github.com/floatinghotpot/cordova-admob-pro/issues/109
+  // https://coderwall.com/p/zk_2la/responsive-design-in-ie-10-on-windows-phone-8
+  // http://stackoverflow.com/questions/24007577/windows-phone-8-viewport-issue
+(function() {
+  if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+    var msViewportStyle = document.createElement("style");
+    msViewportStyle.appendChild(
+      document.createTextNode("@-ms-viewport{width:auto!important}")
+    );
+    document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+  }
+})();
+</script>
+  <link rel="apple-touch-icon" sizes="57x57" href="http://res.yytou.cn/lunjian/img/icon4.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="http://res.yytou.cn/lunjian/img/icon3.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="http://res.yytou.cn/lunjian/img/icon2.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="http://res.yytou.cn/lunjian/img/icon1.png">
+  
+  <link rel="stylesheet" id="sheet1" href="./jsNetUse_files/main.css">
+  
+  <!--<script src="/socket.io/socket.io.js"></script>-->
+  <script src="./jsNetUse_files/socketio.min.js.下载"></script>
+  <script src="./jsNetUse_files/jquery-2.1.1.min.js.下载"></script>
+  <script src="./jsNetUse_files/jquery.cookie.js.下载"></script>
+  <script src="./jsNetUse_files/ansi_up.js.下载"></script>
+  <script src="./jsNetUse_files/fastclick.js.下载"></script>
+  <script src="./jsNetUse_files/jweixin-1.0.0.js.下载"></script>
+  <script src="./jsNetUse_files/wxshare.js.下载"></script><script type="text/javascript" src="./jsNetUse_files/qrcode.js.下载"></script>
+  <script src="./jsNetUse_files/simul_efun.js.下载"></script>
+  <script src="./jsNetUse_files/msg.js.下载"></script>
+  <script src="./jsNetUse_files/msg2.js.下载"></script>
+  <script src="./jsNetUse_files/main.js.下载"></script>
+  <title>论剑：江湖</title>
+</head>
+
+<body>
+  <div id="page">
+	<div id="out_top" style="width: 1110px; height: 0px; border-width: 0px; border-style: solid; border-color: gray;"></div>
+    <div id="out" style="width: 1110px; height: 1716px; border: 1px solid gray;"><span class="out"><table align="center" border="0" style="width:100%"><tbody><tr><td style="width:33%" align="left"><a href="javascript:gSocketMsg.skin_select()" style="text-decoration:none"><span class="out2"><span style="color:rgb(255,255,255)">换皮肤</span></span></a></td><td style="width:34%" align="center"><a href="javascript:window.location.reload()" style="text-decoration:none;color:cyan"><span class="outtitle"><span style="color:rgb(0, 255, 0)">会客室</span></span></a></td><td style="width:33%" align="right"><button type="button" cellpadding="0" cellspacing="0" onclick="javascript:document.location.href=&#39;/?id=4243366&amp;key=44ce6a313b19ebe5d18be89d4bf03119&amp;time=1494211911194&amp;area=38&#39;;" class="cmd_change_line"> </button></td></tr></tbody></table><hr style="height:1px;border:none;border-top:1px solid #555555;margin-top:1px;"><table align="center" style="width:100%"><tbody><tr><td><span class="out3"> 唐门第三代弟子【 平&nbsp;民 】邹子璇</span></td></tr></tbody></table><table align="center" style="width:100%"><tbody><tr><td style="width:65%"><span class="out3">【气血】10148/10148</span></td><td style="width:35%"></td></tr><tr><td style="width:65%"><span class="out3">【内力】26438/14622（+268）</span></td><td style="width:35%"></td></tr></tbody></table><table align="center" style="width:100%;TABLE-LAYOUT:fixed"><tbody><tr><td style="width:60%;WORD-WRAP:break-word"><span class="out3"><span style="color:rgb(187, 187, 0)">【经验】678321049 挂机中</span></span></td><td style="width:40%;WORD-WRAP:break-word"><span class="out3"><span style="color:rgb(85, 255, 255)">【潜能】93708</span></span></td></tr><tr><td style="width:60%;WORD-WRAP:break-word"><span class="out3">【等级】570</span></td><td style="width:40%;WORD-WRAP:break-word"><span class="out3">【成长】37740/小时</span></td></tr></tbody></table><table align="center" style="width:100%"><tbody><tr><td style="width:34%"><button type="button" cellpadding="0" cellspacing="0" onclick="clickButton(&#39;work&#39;)" class="cmd_main_quest"> </button></td><td style="width:34%"><button type="button" cellpadding="0" cellspacing="0" onclick="clickButton(&#39;jh&#39;)" class="cmd_main_jh"> </button></td><td style="width:33%"><button type="button" cellpadding="0" cellspacing="0" onclick="clickButton(&#39;look_room&#39;)" class="cmd_main_shimen"> </button></td></tr></tbody></table><table align="center"><tbody><tr><td style="width:15%"><button type="button" cellpadding="0" cellspacing="0" onclick="clickButton(&#39;shop&#39;)" class="cmd_main_shop"> </button></td><td style="width:15%"><button type="button" cellpadding="0" cellspacing="0" onclick="clickButton(&#39;sort&#39;)" class="cmd_main_sort"> </button></td><td style="width:15%"><button type="button" cellpadding="0" cellspacing="0" onclick="clickButton(&#39;friend&#39;)" class="cmd_main_shejiao"> </button></td><td style="width:15%"><button type="button" cellpadding="0" cellspacing="0" onclick="clickButton(&#39;wshop&#39;)" class="cmd_main_wshop"> </button></td><td style="width:15%"><button type="button" cellpadding="0" cellspacing="0" onclick="clickButton(&#39;swords&#39;)" class="cmd_main_swords"> </button></td><td style="width:15%"><button type="button" cellpadding="0" cellspacing="0" onclick="clickButton(&#39;clan&#39;)" class="cmd_main_clan"> </button></td><td style="width:10%"></td></tr></tbody></table></span></div>
+	<div id="out2" style="width: 1110px; height: 573px; border: 1px solid gray;"><span class="out2"><span style="color:rgb(255, 255, 255)">欢迎来到【论剑：江湖】游戏<br></span></span><p id="notify_1" align="center" style="position: absolute; left: 20px; top: 834px; display: none;"><strong style="font-size:18px"><span style="color:rgb(255, 85, 85)"></span><span style="color:rgb(0, 255, 0)">使用手机浏览器可直接进入游戏</span></strong></p></div>
+    <div id="cmd" style="width: 1110px; height: 99px; border-width: 0px 1px 1px; border-style: solid; border-color: gray;"><table align="center" border="0" style="width:100%"><tbody><tr><td style="width:25%" align="center"><a href="javascript:clickButton(&#39;score&#39;);"><img src="./jsNetUse_files/zhuangtai2.png" class="mainb" alt="状态"></a></td>
+<td style="width:25%" align="center"><a href="javascript:clickButton(&#39;go_chat&#39;);"><img src="./jsNetUse_files/liaotian3.png" class="mainb" alt="聊天"></a></td>
+<td style="width:25%" align="center"><a href="javascript:clickButton(&#39;golook_room&#39;);"><img src="./jsNetUse_files/guancha2.png" class="mainb" alt="观察"></a></td>
+<td style="width:25%" align="center"><a href="javascript:clickButton(&#39;home_prompt&#39;);"><img src="./jsNetUse_files/zhuye2.png" class="mainb" alt="主页"></a></td></tr></tbody></table>
+</div>
+  </div> <p id="img_loading" style="display: none; position: absolute; left: 445px; top: 478px;"><img src="./jsNetUse_files/loading3.gif" class="loading"></p>
+
+
+<button style="position: absolute; right: 155px; top: 370px; height: 20px;">显示</button><button style="position: absolute; right: 0px; top: 0px; height: 20px; visibility: hidden;">停止强化</button><button style="position: absolute; left: 0px; top: 450px; height: 20px; visibility: hidden;">大昭壁画</button><button style="position: absolute; left: 100px; top: 0px; height: 20px; visibility: hidden;">苗疆炼药</button><button style="position: absolute; left: 0px; top: 420px; height: 20px; visibility: hidden;">自动破招</button><button style="position: absolute; left: 0px; top: 210px; height: 20px; visibility: hidden;">跨服抢坑</button><button style="position: absolute; left: 0px; top: 330px; height: 20px; visibility: hidden;">跨服天剑谷</button><button style="position: absolute; right: 0px; top: 30px; height: 20px; visibility: hidden;">秘境最优化</button><button style="position: absolute; right: 0px; top: 90px; height: 20px; visibility: hidden;">登录签到</button><button style="position: absolute; right: 0px; top: 180px; height: 20px; visibility: hidden;">刷碎片</button><button style="position: absolute; right: 0px; top: 210px; height: 20px; visibility: hidden;">开始钓鱼</button><button style="position: absolute; right: 0px; top: 270px; height: 20px; visibility: hidden;">清谜题</button><button style="position: absolute; right: 0px; top: 300px; height: 20px; visibility: hidden;">开始抢物品</button><button style="position: absolute; right: 0px; top: 60px; height: 20px; visibility: hidden;">奇侠领朱果</button><button style="position: absolute; right: 0px; top: 330px; height: 20px; visibility: hidden;">自动答题</button><button style="position: absolute; right: 0px; top: 240px; height: 20px; visibility: hidden;">自动挖宝</button><button style="position: absolute; left: 0px; top: 180px; height: 20px; visibility: hidden;">循环击杀</button><button style="position: absolute; left: 0px; top: 150px; height: 20px; visibility: hidden;">逃跑回坑</button><button style="position: absolute; left: 0px; top: 120px; height: 20px; visibility: hidden;">逃跑换边</button><button style="position: absolute; right: 0px; top: 360px; height: 20px; visibility: hidden;">战斗装备</button><button style="position: absolute; left: 0px; top: 480px; height: 20px; visibility: hidden;">脱衣服</button><button style="position: absolute; right: 0px; top: 120px; height: 20px; visibility: hidden;">礼包</button><button style="position: absolute; right: 0px; top: 150px; height: 20px; visibility: hidden;">签到vip</button><button style="position: absolute; right: 0px; top: 390px; height: 20px; visibility: hidden;">杀孽龙</button><button style="position: absolute; right: 0px; top: 420px; height: 20px; visibility: hidden;">白驼军阵</button><button style="position: absolute; right: 0px; top: 450px; height: 20px; visibility: hidden;">峨眉金狼</button><button style="position: absolute; right: 0px; top: 480px; height: 20px; visibility: hidden;">冰月谷</button><button style="position: absolute; left: 0px; top: 30px; height: 20px; visibility: hidden;">买千年</button><button style="position: absolute; left: 0px; top: 90px; height: 20px; visibility: hidden;">打榜</button><button style="position: absolute; left: 0px; top: 60px; height: 20px; visibility: hidden;">试剑</button><button style="position: absolute; left: 0px; top: 0px; height: 20px; visibility: hidden;">进入跨服</button><button style="position: absolute; left: 0px; top: 240px; height: 20px; visibility: hidden;">帮副</button><button style="position: absolute; left: 0px; top: 270px; height: 20px; visibility: hidden;">正气</button><button style="position: absolute; left: 0px; top: 300px; height: 20px; visibility: hidden;">邪气</button><button style="position: absolute; left: 0px; top: 360px; height: 20px; visibility: hidden;">礼包识别</button><button style="position: absolute; left: 0px; top: 390px; height: 20px; visibility: hidden;">杀人魔称号</button></body><div style="width:32px!important;height:32px!important;display:none!important;background:#fff!important;border-radius:16px!important;box-shadow:4px 4px 8px #888!important;position:absolute!important;z-index:2147483647!important;"><svg href="javascript:void(0)" style="width:24px;height:24px;margin:4px!important;" "width="24" height="24" viewBox="0 0 768 768"><path d="M672 640.5v-417c0-18-13.5-31.5-31.5-31.5h-282l37.5 129h61.5v-33h34.5v33h115.5v33h-40.5c-10.5 40.5-33 79.5-61.5 112.5l87 85.5-22.5 24-87-85.5-28.5 28.5 25.5 88.5-64.5 64.5h225c18 0 31.5-13.5 31.5-31.5zM447 388.5c7.5 15 19.5 34.5 36 54 39-46.5 49.5-88.5 49.5-88.5h-127.5l10.5 34.5h31.5zM423 412.5l19.5 70.5 18-16.5c-15-16.5-27-34.5-37.5-54zM355.5 339c0-7.381-0.211-16.921-3-22.5h-126v49.5h70.5c-4.5 19.5-24 48-67.5 48-42 0-76.5-36-76.5-78s34.5-78 76.5-78c24 0 39 10.5 48 19.5l3 1.5 39-37.5-3-1.5c-24-22.5-54-34.5-87-34.5-72 0-130.5 58.5-130.5 130.5s58.5 130.5 130.5 130.5c73.5 0 126-52.5 126-127.5zM640.5 160.5c34.5 0 63 28.5 63 63v417c0 34.5-28.5 63-63 63h-256.5l-31.5-96h-225c-34.5 0-63-28.5-63-63v-417c0-34.5 28.5-63 63-63h192l28.5 96h292.5z" style="fill:#3e84f4;"></path></svg></div></html>

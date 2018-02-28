@@ -1,0 +1,149 @@
+document.write('<script type="text/javascript" src="http://res.yytou.cn/jslib/qrcode.js"></script>');
+
+function isWeixinBroswer() {
+	var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+	return (userAgent.indexOf("MicroMessenger")!=-1) //是微信浏览器中
+}
+
+function showShareQRCode(toUrl) {
+	showQRCode(toUrl, '分享到微信朋友圈', '打开微信使用“扫一扫”功能，即可打开网页分享至朋友圈。');
+}
+
+function initShare(params) {
+
+	if(!isWeixinBroswer()) //不是微信浏览器中
+	{
+		return;
+	}
+	
+	$.ajax({
+		async:true,
+		url: params.params_url,
+		type: "GET",
+		dataType: "json",
+		timeout: 30000,
+		success: function (json) {
+			wx.config({
+			    debug: params.debug, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			    appId: json.wx_appid, // 必填，公众号的唯一标识
+			    timestamp: json.timestamp, // 必填，生成签名的时间戳
+			    nonceStr: json.noncestr, // 必填，生成签名的随机串
+			    signature: json.signature,// 必填，签名，见附录1
+			    jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ',
+			    	'onMenuShareWeibo','onMenuShareQZone','showAllNonBaseMenuItem','hideAllNonBaseMenuItem'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+			});
+
+			wx.ready(function(){
+				// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+			/*
+				wx.success(function(res){
+					// 接口调用成功时执行的回调函数。
+				
+				});
+		
+				wx.fail(function(res){
+					// 接口调用失败时执行的回调函数。
+				
+				});
+		
+				wx.complete(function(res){
+					// 接口调用完成时执行的回调函数，无论成功或失败都会执行。
+				
+				});
+		
+				wx.cancel(function(res){
+					// 用户点击取消时的回调函数，仅部分有用户取消操作的api才会用到。
+				
+				});
+			*/
+				wx.onMenuShareTimeline({
+					title: params.share_title, // 分享标题
+					link: params.share_link, // 分享链接
+					imgUrl: params.share_imgurl, // 分享图标
+					success: function () {
+						// 用户确认分享后执行的回调函数
+						if(params.onsuccess)
+							params.onsuccess('Timeline');
+					},
+					cancel: function () {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+		
+				wx.onMenuShareAppMessage({
+					title: params.share_title, // 分享标题
+					desc: params.share_desc, // 分享描述
+					link: params.share_link, // 分享链接
+					imgUrl: params.share_imgurl, // 分享图标
+					type: '', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function () {
+						// 用户确认分享后执行的回调函数
+						if(params.onsuccess)
+							params.onsuccess('AppMessage');
+					},
+					cancel: function () {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+		
+				wx.onMenuShareQQ({
+					title: params.share_title, // 分享标题
+					desc: params.share_desc, // 分享描述
+					link: params.share_link, // 分享链接
+					imgUrl: params.share_imgurl, // 分享图标
+					success: function () {
+						// 用户确认分享后执行的回调函数
+						if(params.onsuccess)
+							params.onsuccess('QQ');
+					},
+					cancel: function () {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+		
+				wx.onMenuShareWeibo({
+					title: params.share_title, // 分享标题
+					desc: params.share_desc, // 分享描述
+					link: params.share_link, // 分享链接
+					imgUrl: params.share_imgurl, // 分享图标
+					success: function () {
+						// 用户确认分享后执行的回调函数
+						if(params.onsuccess)
+							params.onsuccess('Weibo');
+					},
+					cancel: function () {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+		
+				wx.onMenuShareQZone({
+					title: params.share_title, // 分享标题
+					desc: params.share_desc, // 分享描述
+					link: params.share_link, // 分享链接
+					imgUrl: params.share_imgurl, // 分享图标
+					success: function () {
+						// 用户确认分享后执行的回调函数
+						if(params.onsuccess)
+							params.onsuccess('QZone');
+					},
+					cancel: function () {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+		
+				wx.showAllNonBaseMenuItem();
+			});
+		
+			wx.error(function(res){
+				// config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+			
+			});
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+			//ignore
+			//alert('request fail: '+errorThrown);
+		}
+	});
+
+}

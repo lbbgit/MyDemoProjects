@@ -1,0 +1,1096 @@
+body, div#page {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #111111;
+  background: url(http://res.yytou.cn/lunjian/img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div#out {
+  margin: 0px;
+  padding: 0px;
+  overflow-y: scroll;
+  font-size: 13px;
+  line-height: 150%;
+  border: 1px solid gray;
+}
+
+div#out_top {
+  margin: 0px;
+  padding: 0px;
+  overflow-y: scroll;
+  font-size: 13px;
+  line-height: 150%;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: none;
+}
+
+div#out2 {
+  margin: 0px;
+  padding: 0px;
+  overflow-y: scroll;
+  font-size: 13px;
+  line-height: 150%;
+  border: 1px solid gray; 
+}
+
+div#cmd {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 0px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+span.outsmall_text {
+  white-space:pre;
+  word-wrap: break-word;
+  color: #C8C8C8;
+  font-size: 10px;
+}
+
+span.outkee_text {
+  white-space:pre;
+  word-wrap: break-word;
+  color: #C8C8C8;
+  font-size: 14px;
+}
+
+span.out {
+  color: #C8C8C8;
+  word-break:normal; width:auto; display:block; white-space:pre-wrap;overflow:hidden;
+}
+
+span.out_line {
+  white-space:pre;
+  word-wrap: break-word;
+  color: #C8C8C8;
+}
+
+span.out1 {
+  word-break:normal; width:auto; display:block; white-space:pre-wrap;overflow:hidden;
+  color: #C8C8C8;
+}
+
+span.out_top {
+  white-space:pre;
+  word-wrap: break-word;
+  color: #C8C8C8;
+}
+
+span.out2 {
+  word-break:normal; width:auto; display:block; white-space:pre-wrap;overflow:hidden;
+  color: #C8C8C8;
+}
+
+span.out3 {
+  white-space:pre;
+  word-wrap: break-word;
+  color: #C8C8C8;
+  font-size: 16px;
+}
+
+span.out3_auto {
+  word-break:normal; width:auto; display:block; white-space:pre-wrap;overflow:hidden;
+  color: #C8C8C8;
+  font-size: 16px;
+}
+
+span.out4 {
+  white-space:pre;
+  word-wrap: break-word;
+  color: #C8C8C8;
+  font-size: 18px;
+}
+
+span.out4_auto {
+  word-break:normal; width:auto; display:block; white-space:pre-wrap;overflow:hidden;
+  color: #C8C8C8;
+  font-size: 18px;
+}
+
+span.notify {
+  white-space:pre;
+  word-wrap: break-word;
+  color: #C8C8C8;
+  font-size: 18px;
+}
+
+span.outskill_desc {
+  word-break:normal; width:auto; display:block; white-space:pre-wrap;overflow: hidden;
+  color: #7B7B7B;
+  font-size: 15px;
+}
+
+span.outbig_text {
+  white-space:pre;
+  word-wrap: break-word;
+  color: #C8C8C8;
+  font-size: 32px;
+}
+
+span.outtitle {
+  white-space:pre;
+  word-wrap: break-word;
+  color: #C8C8C8;
+  font-size: 21px;
+}
+
+input#cmd {
+  font-size: 18px;
+  padding: 5px;
+}
+
+input.reg_input {
+  font-size: 12px;
+  padding: 5px;
+}
+
+input.chat_input {
+  font-size: 18px;
+  padding: 5px;
+}
+
+input.tell_input {
+  font-size: 18px;
+  padding: 5px;
+}
+
+button.reg_button {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 20px;
+  padding: 7px;
+  margin: 1px;
+  background: url(http://res.yytou.cn/lunjian/img/npc.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0px;
+}
+
+button.cmd_click {
+  font-size: 12px;
+  width: 80px;
+  height: 32px;
+  padding: 7px;
+  margin: 1px;
+}
+
+button.cmd_main_quest {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/quest2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_main_quest2 {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/quest3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_main_jh {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/jh2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_main_shimen {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/shimen2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_main_baishi {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/baishi2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_main_shop {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/shangcheng.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_main_sort {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/paiming.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_main_swords {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/lunjian.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_main_clan {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/bangpai.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_main_wshop {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/weishang.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_main_shejiao {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/shejiao.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_room {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_self.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_e {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_e.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_s {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_s.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_w {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_w.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_n {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_n.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_se {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_se.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_sw {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_sw.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_nw {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_nw.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_ne {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_ne.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_e2 {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_find_road.gif),url(http://res.yytou.cn/lunjian/img/room_e.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_s2 {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_find_road.gif),url(http://res.yytou.cn/lunjian/img/room_s.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_w2 {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_find_road.gif),url(http://res.yytou.cn/lunjian/img/room_w.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_n2 {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_find_road.gif),url(http://res.yytou.cn/lunjian/img/room_n.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_se2 {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_find_road.gif),url(http://res.yytou.cn/lunjian/img/room_se.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_sw2 {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_find_road.gif),url(http://res.yytou.cn/lunjian/img/room_sw.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_nw2 {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_find_road.gif),url(http://res.yytou.cn/lunjian/img/room_nw.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click_exits_ne2 {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/room_find_road.gif),url(http://res.yytou.cn/lunjian/img/room_ne.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_click2 {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding: 7px;
+  margin: 1px;
+  background: url(http://res.yytou.cn/lunjian/img/button3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0px;
+}
+
+button.cmd_click2_find {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding: 7px;
+  margin: 1px;
+  background: url(http://res.yytou.cn/lunjian/img/button3_find.gif),url(http://res.yytou.cn/lunjian/img/button3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0px;
+}
+
+button.cmd_click3 {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding: 7px;
+  margin: 1px;
+  background: url(http://res.yytou.cn/lunjian/img/npc.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0px;
+}
+
+button.cmd_click3_disabled {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding: 7px;
+  margin: 1px;
+  background: url(http://res.yytou.cn/lunjian/img/npc_disabled.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0px;
+}
+
+button.cmd_click3_find {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding: 7px;
+  margin: 1px;
+  background: url(http://res.yytou.cn/lunjian/img/npc_find_road2.gif),url(http://res.yytou.cn/lunjian/img/npc.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0px;
+}
+
+button.cmd_lit {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/button_lit.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_med {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/button_med.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_forward {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/button_forward.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_back {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/button_back.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_list {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/button_list.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_fclick {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/button_click.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_quest {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/button_quest.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_skill_button {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/npc.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_combat_auto_fight {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/auto_fight.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_combat_no_auto_fight {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/no_auto_fight.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_combat_byebye {
+  font-size: 12px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/byebye.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+table.tab {
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/tab.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_main {
+  font-size: 16px;
+  width: 88px;
+  height: 40px;
+  padding: 7px;
+  margin: 1px;
+}
+
+button.cmd_tab {
+  font-size: 15px;
+  color: black;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/tab_b.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_tab_clicked {
+  font-size: 15px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/tab_b_clicked.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_tab_jm2 {
+  font-size: 15px;
+  color: black;
+  width: 120px;
+  height: 28px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/tab_b.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_tab_jm2_clicked {
+  font-size: 15px;
+  color: white;
+  width: 120px;
+  height: 28px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/tab_b_clicked.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_tab_jm2_disabled {
+  font-size: 15px;
+  color: black;
+  width: 120px;
+  height: 28px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/tab_b_disabled.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+tr.cmd_tab_jm2_top {
+  height: 7px;
+}
+
+button.cmd_chat_tab {
+  font-size: 15px;
+  color: black;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/tab_b.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_chat_tab_click {
+  font-size: 15px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/tab_b_clicked.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_out_map {
+  font-size: 15px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/out_map.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_map {
+  font-size: 15px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/map.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button.cmd_change_line {
+  font-size: 15px;
+  color: white;
+  width: 100px;
+  height: 37px;
+  padding:0;
+  margin:0;
+  border:none;
+  text-decoration:none;
+  background: url(http://res.yytou.cn/lunjian/img/change_line.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+select.enable1 {
+	width: 100px;
+	height: 36px;
+	overflow: hidden;
+	border:1px #7F9DB9 solid;
+	display: inline;
+	margin-right:6px;
+}
+
+select.enable {
+	vertical-align:middle;
+	border:1px solid #e9e9e9;
+	box-shadow:inset 0 0 3px #a0a0a0;
+}
+
+img.menpai {
+	width:100px;
+	height:36px;
+}
+
+img.qbutton {
+	width:100px;
+	height:36px;
+}
+
+img.mainb {
+	width:80px;
+	height:29px;
+}
+
+img.sbutton {
+	width:150px;
+	height:83px;
+}
+
+img.prev {
+	width:150px;
+	height:83px;
+}
+
+img.prev_out {
+	width:150px;
+	height:83px;
+}
+
+img.list {
+	width:150px;
+	height:83px;
+}
+
+img.line {
+	width:150px;
+	height:83px;
+}
+
+img.all_line {
+	width:150px;
+	height:83px;
+}
+
+img.loading {
+	width:100px;
+	height:36px;
+}
+
+#tr_quest_list {
+	height:20px;
+	width:120px;
+	background:url(http://res.yytou.cn/lunjian/img/big_list.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+.barControl {margin: 0 auto;}
+.barContro_space { margin: 10px 0;	background:grey;border-radius: 5px;}
+
+.vader{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader11{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader12{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader13{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader14{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader15{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader16{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader17{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader18{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader21{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader22{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader23{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader24{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader25{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader26{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader27{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+.vader28{border-radius: 2px;display: block;width: 0%;box-shadow:0px 0px 10px 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275, 0 0 1px #FD4275;background-color: #fff;}
+
+.obi{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi11{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi12{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi13{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi14{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi15{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi16{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi17{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi18{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi21{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi22{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi23{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi24{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi25{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi26{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi27{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+.obi28{border-radius: 2px;display: block; width: 0%;box-shadow:0px 0px 10px 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8, 0 0 1px #3B8CF8;background-color: #fff;}
+
+.yoda{border-radius: 2px;display: block; width: 0%; box-shadow:0px 0px 10px 1px #68B37A, 0 0 1px #68B37A, 0 0 1px #68B37A, 0 0 1px #68B37A, 0 0 1px #68B37A, 0 0 1px #68B37A, 0 0 1px #68B37A;background-color: #FFFFFF;}
+.xdz_bar{border-radius: 2px;display: block; width: 0%; box-shadow:0px 0px 10px 1px #68B37A, 0 0 1px #68B37A, 0 0 1px #68B37A, 0 0 1px #68B37A, 0 0 1px #68B37A, 0 0 1px #68B37A, 0 0 1px #68B37A;background-color: #FFFFFF;}
+.windu{ border-radius: 2px;display: block; width: 0%; box-shadow:0px 0px 10px 1px #AC85B4, 0 0 1px #AC85B4, 0 0 1px #AC85B4, 0 0 1px #AC85B4, 0 0 1px #AC85B4, 0 0 1px #AC85B4, 0 0 1px #AC85B4;background-color: #fff;}
+.progress{
+	margin-top:1px;
+}
+
