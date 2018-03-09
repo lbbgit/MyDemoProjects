@@ -1,0 +1,86 @@
+
+function hideQRCode() {
+	$('#floatingMaskDiv').hide();
+	$('#QRCodeDiv').hide();
+}
+
+function showQRCode(toUrl, title, desc, onClose) {
+	var url = 'http://pan.baidu.com/share/qrcode?w=244&h=244&url=' + encodeURIComponent(toUrl);
+	if(!title)
+		title = '分享到微信朋友圈';
+	if(!desc)
+		desc = '打开微信使用“扫一扫”功能，即可打开网页分享至朋友圈。';
+
+	var floatingMaskDiv = document.getElementById("floatingMaskDiv");
+	if(!floatingMaskDiv) {
+		floatingMaskDiv=document.createElement("div");
+		floatingMaskDiv.setAttribute('id','floatingMaskDiv');
+		floatingMaskDiv.style.background="#777";
+		floatingMaskDiv.style.position = "fixed";
+		floatingMaskDiv.style.top="0px"
+		floatingMaskDiv.style.left="0px";
+		floatingMaskDiv.style.zIndex = "10001";
+		floatingMaskDiv.style.opacity="0.5";
+		floatingMaskDiv.style.display="block";
+		document.body.appendChild(floatingMaskDiv);
+		floatingMaskDiv.style.top="0px";
+		floatingMaskDiv.style.left="0px";
+		floatingMaskDiv.style.width="100%";
+		floatingMaskDiv.style.height="100%";
+		$('#floatingMaskDiv').click(function() {
+			hideQRCode();
+			if(onClose)
+				onClose();
+		});
+
+		var QRCodeDiv=document.createElement("div");
+		QRCodeDiv.setAttribute('id','QRCodeDiv');
+		QRCodeDiv.setAttribute('style','padding:10px;width:240px;height:300px;background:#fff;border:solid 1px #d8d8d8;z-index:11001;font-size:12px');
+		document.body.appendChild(QRCodeDiv);
+		QRCodeDiv.style.position = "fixed";
+		QRCodeDiv.style.top="50%";
+		QRCodeDiv.style.left="50%";
+		var w = $("#QRCodeDiv").width();
+		var h = $("#QRCodeDiv").height();
+		var x = $("#QRCodeDiv").offset().left - $(document).scrollLeft() - w/2;
+		var y = $("#QRCodeDiv").offset().top - $(document).scrollTop() - h/2;
+		QRCodeDiv.style.left = x + "px";
+		QRCodeDiv.style.top = y + "px";
+		
+		var html = '<div style="font-size:12px;font-weight:bold;text-align:left;line-height:16px;height:16px;position:relative;color:#000"><span>'+title+'</span><a id="closeBt" href="#" onclick="return false;" style="width:16px;height:16px;position:absolute;right:0;top:0;color:#999;text-decoration:none;font-size:16px">×</a></div>';
+		var headDev=$(html);
+		$('#QRCodeDiv').append(headDev);
+		$('#closeBt').click(function(){
+			hideQRCode();
+			if(onClose)
+				onClose();
+		});
+		
+		html = '<div id="imgDev" style="width:100%;" align="center"></div>';
+		var imgDev=$(html);
+		$('#QRCodeDiv').append(imgDev);
+
+		html = '<img id="imgObj" src="'+url+'" />';
+		var img=$(html);
+		$('#imgDev').append(img);
+		
+		html = '<div style="font-size:12px;text-align:left;line-height:22px;color:#666">'+desc+'</div>';
+		var footDev=$(html);
+		$('#QRCodeDiv').append(footDev);
+	}
+	else {
+		$('#imgObj').attr("src", url);
+		$('#floatingMaskDiv').show();
+		$('#QRCodeDiv').show();
+
+		var QRCodeDiv = document.getElementById("QRCodeDiv");
+		QRCodeDiv.style.top="50%";
+		QRCodeDiv.style.left="50%";
+		var w = $("#QRCodeDiv").width();
+		var h = $("#QRCodeDiv").height();
+		var x = $("#QRCodeDiv").offset().left - $(document).scrollLeft() - w/2;
+		var y = $("#QRCodeDiv").offset().top - $(document).scrollTop() - h/2;
+		QRCodeDiv.style.left = x + "px";
+		QRCodeDiv.style.top = y + "px";
+	}
+}

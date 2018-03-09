@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/lufylegend-1.10.1.min.js"></script>
+    <title>Title</title>
+</head>
+<body  style="background-color:#000;margin: 0 auto">
+<div id="H5_Demo">loading……</div>
+</body>
+</html>
+<script>
+
+    //要载入的图像数组
+    var loadData = [
+        {name: "bbtn", path: "images/bbtn.png"},
+        {name: "bg", path: "images/bg.jpg"},
+        {name: "gongjili", path: "images/gongjili.png"},
+        {name: "gwhps", path: "images/gwhps.png"},
+        {name: "gwhpsbg", path: "images/gwhpsbg.png"},
+        {name: "headborder", path: "images/headborder.png"},
+        {name: "jinbi", path: "images/jinbi.png"},
+        {name: "rbtn", path: "images/rbtn.png"},
+        {name: "userinfo", path: "images/userinfo.png"},
+        {name: "zuanshi", path: "images/zuanshi.png"},
+        {name: "userhead", path: "images/userhead.png"},
+    ];
+
+
+    //初始化游戏 （游戏帧速度，初始化的div名字，长，宽，初始化调用函数）
+    init(1000 / 30, "H5_Demo", 480, 800, main);
+    function main() {
+        //游戏全屏显示，自适应屏幕
+        LGlobal.stageScale = LStageScaleMode.SHOW_ALL;
+        LSystem.screen(LStage.FULL_SCREEN);
+        //居中
+        LGlobal.align = LStageAlign.TOP_MIDDLE;
+
+        //加载Loading类读取图片，这里注意：loadingLayer是全局变量 并没有用var关键字声明
+        loadingLayer = new LoadingSample5();
+        addChild(loadingLayer);
+        LLoadManage.load(loadData, function (progress) {
+            loadingLayer.setProgress(progress);
+        }, gameInit);
+    }
+
+
+    function gameInit(result) {
+
+        //将图像集结果赋值给数组并移除读条界面
+        loadData = result;
+        removeChild(loadingLayer);
+        loadingLayer = null;
+
+
+        //新建一个背景层，添加到Canvas画布
+        BGDiv = new LSprite();
+        addChild(BGDiv);
+
+
+        //将图像信息从数组中取出赋值给图像数据变量
+        var bitmapData = new LBitmapData(loadData["bg"]);
+        //将图像信息赋值给一个图像
+        var bgmapimg = new LBitmap(bitmapData);
+        //添加图像到背景层
+        BGDiv.addChild(bgmapimg);
+
+		//我们添加引擎控制台查看当前游戏运行状态： 
+        addChild(new FPS());
+        setTop();
+
+    }
+
+
+    GuankaIndex=1;//当前关卡数
+    Money=100;//金币
+    zuanshi=50;//钻石
+    Dps=800;//总攻击力
+    BoIndex=1;//当前波数
+    GWhpyushu=10;//怪物剩余血量
+    GWhp=100;//怪物总血量
+    function setTop() {
+
+        TopDiv = new LSprite();//定义top层
+        TopDivbm = new LSprite();//定义top缓冲层
+        var Topshape = new LShape();//定义画图对象
+        Topshape.graphics.drawRect(0, "#000", [0, 0, 484, 100, 10], true, "#000");//绘制一个矩形
+        Topshape.alpha = 0.6;  //透明度
+        TopDivbm.addChild(Topshape); //添加矩形对象
+
+
+
+        userheadimg = CreatImg("userhead",0.62,0.62,22,12);//添加玩家头像
+        TopDivbm.addChild(userheadimg);
+
+        headborderimg =  CreatImg("headborder",0.8,0.8,18,7);//添加头像边框
+        TopDivbm.addChild(headborderimg);
+
+        TopDivboshu1 = new LSprite();//波数按钮层
+        boshuimg1 = CreatImg("bbtn",0.8,0.8,0,0);
+        TopDivboshu1.x = 94;
+        TopDivboshu1.y = 10;
+        TopDivboshu1.addChild(boshuimg1);
+        TopDivboshu1text =CreatText(16,"#fff",GuankaIndex - 2,"微软雅黑", "#603932",true,2, "bolder",0,0);
+        TopDivboshu1text.y = 14 - TopDivboshu1text.getHeight() / 2;
+        TopDivboshu1text.x = 45 - TopDivboshu1text.getWidth() / 2 - 21;
+        if (GuankaIndex - 2 <= 0) TopDivboshu1text.text = "";
+        TopDivboshu1.addChild(TopDivboshu1text);
+        TopDivbm.addChild(TopDivboshu1);
+
+
+        TopDivboshu2 = new LSprite();//波数按钮层
+        boshuimg2 = CreatImg("bbtn",0.8,0.8,0,0);
+        TopDivboshu2.x = 148;
+        TopDivboshu2.y = 10;
+        TopDivboshu2.addChild(boshuimg2);
+        TopDivboshu2text =CreatText(16,"#fff",GuankaIndex - 1,"微软雅黑", "#603932",true,2, "bolder",0,0);
+        TopDivboshu2text.y = 14 - TopDivboshu2text.getHeight() / 2;
+        TopDivboshu2text.x = 45 - TopDivboshu2text.getWidth() / 2 - 21;
+        if (GuankaIndex - 1 <= 0) TopDivboshu2text.text = "";
+        TopDivboshu2.addChild(TopDivboshu2text);
+        TopDivbm.addChild(TopDivboshu2);
+
+        TopDivboshu3 = new LSprite();//波数按钮层
+        boshuimg3 = CreatImg("rbtn",0.8,0.8,0,0);
+        TopDivboshu3.x = 202;
+        TopDivboshu3.y = 7;
+        TopDivboshu3.scaleX = 1.2;
+        TopDivboshu3.scaleY = 1.2;
+        TopDivboshu3.addChild(boshuimg3);
+        TopDivboshu3text =CreatText(16,"#fff",GuankaIndex ,"微软雅黑", "#603932",true,2, "bolder",0,0);
+        TopDivboshu3text.y = 14 - TopDivboshu3text.getHeight() / 2;
+        TopDivboshu3text.x = 45 - TopDivboshu3text.getWidth() / 2 - 21;
+        TopDivboshu3.addChild(TopDivboshu3text);
+        TopDivbm.addChild(TopDivboshu3);
+
+        TopDivboshu4 = new LSprite();//波数按钮层
+        boshuimg4 = CreatImg("bbtn",0.8,0.8,0,0);
+        TopDivboshu4.x = 265;
+        TopDivboshu4.y = 10;
+        TopDivboshu4.addChild(boshuimg4);
+        TopDivboshu4text =CreatText(16,"#fff",GuankaIndex + 1,"微软雅黑", "#603932",true,2, "bolder",0,0);
+        TopDivboshu4text.y = 14 - TopDivboshu4text.getHeight() / 2;
+        TopDivboshu4text.x = 45 - TopDivboshu4text.getWidth() / 2 - 21;
+        TopDivboshu4.addChild(TopDivboshu4text);
+        TopDivbm.addChild(TopDivboshu4);
+
+        TopDivboshu5 = new LSprite();//波数按钮层
+        boshuimg5 = CreatImg("bbtn",0.8,0.8,0,0);
+        TopDivboshu5.x = 318;
+        TopDivboshu5.y = 10;
+        TopDivboshu5.addChild(boshuimg5);
+        TopDivboshu5text =CreatText(16,"#fff",GuankaIndex + 2,"微软雅黑", "#603932",true,2, "bolder",0,0);
+        TopDivboshu5text.y = 14 - TopDivboshu5text.getHeight() / 2;
+        TopDivboshu5text.x = 45 - TopDivboshu5text.getWidth() / 2 - 21;
+        TopDivboshu5.addChild(TopDivboshu5text);
+        TopDivbm.addChild(TopDivboshu5);
+
+        //玩家昵称
+        nicknametext = CreatText(16,"#fff","乔克灬叔叔","微软雅黑", "",false,0, "bolder",0,75);
+        nicknametext.x = 60 - nicknametext.getWidth() / 2 - 10;
+        TopDivbm.addChild(nicknametext);
+
+        //玩家金币图标
+        jinbiimg =  CreatImg("jinbi",0.4,0.4,359,-3);
+        TopDivbm.addChild(jinbiimg);
+
+        //玩家钻石图标
+        zsimg =  CreatImg("zuanshi",0.6,0.6,371,32);
+        TopDivbm.addChild(zsimg);
+
+        //玩家攻击力图标
+        gongjiliimg =  CreatImg("gongjili",0.5,0.5,374,64);
+        TopDivbm.addChild(gongjiliimg);
+
+        //怪物血量背景
+        gwhpsbgimg =  CreatImg("gwhpsbg",1,1,131,62);
+        TopDivbm.addChild(gwhpsbgimg);
+        TopDivbm.cacheAsBitmap(true);
+        TopDiv.addChild(TopDivbm);
+
+        //怪物血量
+        gwhpsimg =  CreatImg("gwhps",1,1,132,63);
+        TopDiv.addChild(gwhpsimg);
+
+        //玩家金币
+        jinbitext= CreatText(16,"#fff",Money,"微软雅黑", "#603932",false,2, "bolder",402,8);
+        TopDiv.addChild(jinbitext);
+
+        //玩家钻石
+        zuanshitext= CreatText(16,"#fff",zuanshi,"微软雅黑", "#603932",false,2, "bolder",402,37);
+        TopDiv.addChild(zuanshitext);
+
+        //玩家攻击力
+        gongjilitext= CreatText(16,"#fff",Dps,"微软雅黑", "#603932",false,2, "bolder",402,66);
+        TopDiv.addChild(gongjilitext);
+
+        //当前波数
+        boyushutext= CreatText(14,"#fff",BoIndex + "/10","微软雅黑", "#603932",true,2, "bolder",140,0);
+        boyushutext.y = 10 - boyushutext.getHeight() / 2 + 59;
+        TopDiv.addChild(boyushutext);
+
+        //怪物血量总计信息
+        Gwhpyushutext= CreatText(14,"#fff",GWhpyushu + "/" + GWhp,"微软雅黑", "#603932",true,2, "bolder",140,0);
+        Gwhpyushutext.y = 10 - Gwhpyushutext.getHeight() / 2 + 59;
+        Gwhpyushutext.x = 326 - Gwhpyushutext.getWidth()-3;
+        TopDiv.addChild(Gwhpyushutext);
+
+        //玩家信息按钮图标
+        hwenhaoDiv1 = new LSprite();
+        hwenhaoimg =  CreatImg("userinfo",0.5,0.5,65,52);
+        hwenhaoDiv1.addChild(hwenhaoimg);
+        TopDiv.addChild(hwenhaoDiv1);
+        BGDiv.addChild(TopDiv);
+    }
+
+    //创建图片对象公共方法
+    function CreatImg(name,scaleX,scaleY,x,y)
+    {
+        var bitmapData = new LBitmapData(loadData[name]);
+        var img = new LBitmap(bitmapData);
+        img.scaleX =scaleX;
+        img.scaleY =scaleY;
+        img.x = x;
+        img.y = y;
+        return img;
+    }
+
+    //创建文本对象公共方法
+    function CreatText(size,color,text,font,lineColor,stroke,lineWidth,weight,x,y)
+    {
+        var txt = new LTextField();
+        txt.size = size;
+        txt.color = color;
+        txt.text = text;
+        txt.font = font;
+        txt.lineColor = lineColor;
+        txt.stroke = stroke;
+        txt.lineWidth = lineWidth;
+        txt.weight = weight;
+        txt.x =x;
+        txt.y =y;
+        return txt;
+
+    }
+
+
+    addListeners();
+    function addListeners() {
+        window.addEventListener('resize', resize);
+    }
+    function resize() {
+        LGlobal.align = LStageAlign.TOP_MIDDLE;
+        LGlobal.stageScale = LStageScaleMode.SHOW_ALL;
+        LSystem.screen(LStage.FULL_SCREEN);
+    }
+</script>
