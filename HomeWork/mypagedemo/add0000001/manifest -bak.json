@@ -1,0 +1,21 @@
+﻿{  
+  "name": "MyTaskList",  
+  "version": "0.9.1",  
+  "description": "it manage the technology",  
+  "manifest_version":2,
+  "permissions":[
+    "tabs",
+    "activeTab",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "browser_action": {  
+    "default_icon": "icon.png" ,
+    "default_title": "God's Task List",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["bg.js"],
+    "persistent":false
+  }  
+} 
