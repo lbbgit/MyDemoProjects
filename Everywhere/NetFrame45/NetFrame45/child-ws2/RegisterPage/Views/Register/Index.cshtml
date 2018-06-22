@@ -1,0 +1,43 @@
+﻿@model  LoginPage.Models.UserRegister
+@{
+    Layout = null;
+}
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Login</title>
+        <script type="text/javascript" src="scripts/jquery-1.8.2.js"></script>
+        <script type="text/javascript" src="scripts/util.js"></script>
+        <script type="text/javascript" src="scripts/userRegister.js"></script>
+        <link href="Css/userRegister.css"  type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div id="background">
+            <h1 id="logo">flowbywind</h1>
+            <div id="content">
+                <h2>注册</h2>
+                  <fieldset>
+                      <span class="required">*</span><label for="userName">用户名</label>
+                      <input name="userName"  type="text" id="userName"/>
+                  </fieldset> 
+                <fieldset>
+                    <label for="userPwd">密码</label><span class="required">*</span>
+                    <input name="userPwd" type="password" id="userPwd"/>
+                </fieldset>
+                <fieldset>
+                    <label for="userPwd2">确认密码</label><span class="required">*</span>
+                    <input name="userPwd2" type="password" id="userPwd2" />
+                </fieldset>
+                <fieldset>
+                    <label for="邮箱">邮箱</label><span class="required">*</span>
+                    <input name="userEmail" type="text" id="userEmail"/>
+                </fieldset>
+                <fieldset class="nolabel">
+                    <input type="button"  id="register" value="注册" />
+                </fieldset>
+            </div>
+        </div>
+    </body>
+    </html>

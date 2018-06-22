@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html;chatset=gb2312" />
+    <title>Ajax无刷新聊天室--Power By Showbo</title>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" src="js/editor.js"></script>
+    <link type="text/css" rel="Stylesheet" href="images/showbo.css" />
+</head>
+<body>
+<div id="dvLogin"><div id="dvWait" class="wait">正在登录系统，请等待...</div><form id='frmLogin' method="post" onsubmit="return Showbo.Chat.Login(this)">昵称：<input type="text" name="nn"/><br /><input type="submit" value="登录" /></form></div>
+<div id="dvChat">
+<div id="dvFloatNote">欢迎您登陆ajax无刷新聊天室。温馨提示：请不要刷新页面，否则会自动注销！</div>
+<div id="dvMsg"></div>
+<div id="editor"></div>
+<div id="dvOp">在线用户：<select id="selContacts" onchange="Showbo.Chat.nowUserId=this.value"><option value="-1">所有人...</option></select>
+<input type="button" value="发送" onclick="Showbo.Chat.send()" id="btnSend"/> 
+<input type="button" value="启用信息提示" onclick="Showbo.Chat.chrHint(this)"/> 
+<input type="button" value="退出聊天室" onclick="Showbo.Chat.Logout(true)" id="btnLT"/>(在编辑器中使用“Ctrl+Enter”发送信息)
+</div>
+<div id="dvOpNote"></div>
+</div>
+</body>
+</html>

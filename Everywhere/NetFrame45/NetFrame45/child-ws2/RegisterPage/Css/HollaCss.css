@@ -1,0 +1,107 @@
+﻿@import "Base.css";
+
+h1, h2 {
+ font-weight:bold;
+ text-shadow:0 1px 1px #ffffff;
+}
+h1 {
+font-size:21pt;
+color:#404040;
+margin:1em 0 0.7em 0;
+}
+h2 {
+font-size:24pt;
+color:#404040;
+}
+h3 {
+font-size:15px;
+color:#404040;
+text-shadow:0 1px 1px #ffffff;
+}
+#title {
+    border-bottom: 1px solid #535353;
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    background: #575859;
+    background: -webkit-gradient(linear,left top,left bottom,from(#575859) to(#272425));
+    background: -webkit-linear-gradient(top,#575859,#272425);
+    background: -moz-linear-gradient(top,#575859,#272425);
+    background: linear-gradient(top,#575859,#272425);
+}
+    #title h1 {
+    color:#fff;
+    text-shadow:0 1px 1px #000;
+    margin:0 10px;   
+    }
+#content {
+overflow:hidden;
+position:absolute;
+left:0;
+right:0;
+top:50px;
+bottom:0;
+/*子元素水平对齐
+    */
+display:-webkit-box;
+-webkit-box-orient:horizontal;
+-webkit-box-align:stretch;
+-webkit-box-pack:left;
+display:-moz-box;
+-moz-box-orient:horizontal;
+-moz-box-align:stretch;
+-moz-box-pack:left;
+}
+    #content .sidebar {
+    background:#ededed;
+    width:200px;
+    -webkit-box-flex:0;
+    -moz-box-flex:0;
+
+    }
+    #content .sidebar h3 {
+   background:#fff;
+   background:-webkit-gradient(linear,left top,left bottom, from(#fff),to(#dedfe0));
+   background:-webkit-linear-gradient(top #fff,#dedfe0);
+   background:-moz-linear-gradient(top,#fff,#dedfe0);
+   background:linear-gradient(top,#fff,#dedfe0);
+   -moz-box-shadow:0 -5px 10px #e4e4e4;
+   -webkit-box-shadow:0 -5px 10px #e4e4e4;
+   box-shadow:0 -5px 10px #e4e4e4;
+   padding:10px 10px 7px 20px;
+   margin:0;
+    }
+    #content .sidebar ul {
+     margin:0;
+     padding:0;
+     list-style:none;
+    }
+        #content .sidebar ul li {
+        display:block;
+        padding:10px 10px 7px 20px;
+        border-bottom:1px solid #cdcdcc;
+        cursor:pointer;
+        -moz-box-shadow:0 1px 1px #fcfcfc;
+        -webkit-box-shodow:0 1px 1px #fcfcfc;
+        box-shadow:0 1px 1px #fcfcfc;
+        }
+            #content .sidebar ul li.active {
+            color:#fff;
+            text-shadow:0 1px 1px #46677f;
+            -webkit-box-shadow:none;
+            -moz-box-shadow:none;
+            background:#7bb5db;
+            background:-webkit-gradient(linear,left top,left bottom,from(#7bb5db) ,to(#4775b8));
+            background:-webkit-linear-gradient(top,#7bb5db,#4775b8);
+            background:-moz-linear-gradient(top,#7bb5db,#4775b8);
+            background:linear-gradient(top,#7bb5db,#4775b8);
+            }
+    #content .main {
+    background:#efe5d0;
+    -moz-box-shadow: 0 1px 1px  #fff inset;
+    -webkit-box-shadow: 0 1px  1px #fff inset;
+    box-shadow:#fff 1px 1px inset;
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+    }

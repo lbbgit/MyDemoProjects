@@ -1,0 +1,18 @@
+﻿body,html {
+margin:0;
+padding:0;
+}
+body {
+    font-family: Arial,'MS Reference Sans Serif','Microsoft YaHei';
+    font-size: 16px;
+    color: #363636;
+    line-height: 1.2em;
+    /*不支持css3时显示此背景色，优雅降级*/
+    background: #d2d2d2;
+    /*渐变默认是垂直方向的，这里倾斜角度为45 从#d2d2d2 渐变到#ccc*/
+    background: -webkit-gradient(linear,left top,left bottom,from(#d2d2d2),to(#ccc));
+    background: -webkit-linear-gradient(-45deg,#d2d2d2,#ccc);
+    background: -moz-linear-gradient(-45deg,#d2d2d2,#ccc);
+    background: -o-linear-gradient(-45deg,#d2d2d2,#ccc);
+    background: linear-gradient(-45deg, #d2d2d2,#ccc);
+}

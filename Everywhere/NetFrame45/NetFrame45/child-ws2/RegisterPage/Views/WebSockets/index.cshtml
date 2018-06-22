@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>即时通讯</title>
+    <link href="Css/WebSocket.css" type="text/css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="Scripts/webSocket.js" type="text/javascript"></script>
+</head>
+<body>
+    <header id="title">
+        <h1>即时通讯</h1>
+    </header>
+    <div  id="contents">
+        <div title="用户信息"><label for="userName">用户名：</label><input type="text" name="userName" id="userName" /><input type="button" id="btnWs" value="连接" /></div>
+        <div title="聊天信息" id="msgContainer"></div>
+        <div title="消息对话框" id="msgOperate"><label for="txtMsg">消息内容：</label><input type="text" id="txtMsg" name="txtMsg" /><input type="button" id="btnSend" value="发送" /></div>
+    </div>
+</body>
+</html>

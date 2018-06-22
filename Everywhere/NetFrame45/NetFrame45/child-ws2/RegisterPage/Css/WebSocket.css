@@ -1,0 +1,53 @@
+﻿@import "base.css";
+@import "hollacss.css";
+
+
+body {
+margin:0 auto 0 auto;
+}
+#contents  >div
+{
+    margin:15px auto 15px 50px;
+}
+
+#contents  #msgContainer {
+         width: 680px;
+         height: 300px;
+         overflow: auto;
+         border: 1px solid #0094ff;
+         background:#d2d2d2;
+
+border-radius:2px;
+         text-align:left;
+}
+    #contents #msgContainer .message {
+        width:95%;
+        margin:5px 5px 5px 5px;
+        line-height:25px;
+        color:#0094ff;
+         font-weight:bold;
+    }
+    
+    #contents #msgContainer .message .divChat {
+        font-weight:100;
+        text-align:left;
+      margin:0px 3px 0px 30px;
+      color:#808080;
+      max-width:460px;
+      min-width:200px;
+      width:300px;
+      border-radius:2px;
+          background: #fff;
+   background:-webkit-gradient(linear,left top,left bottom, from(#fff),to(#dedfe0));
+   background:-webkit-linear-gradient(top #fff,#dedfe0);
+   background:-moz-linear-gradient(top,#fff,#dedfe0);
+   background:linear-gradient(top,#fff,#dedfe0);
+   /*-moz-box-shadow:0 -5px 10px #e4e4e4;
+   -webkit-box-shadow:0 -5px 10px #e4e4e4;
+   box-shadow:0 -5px 10px #e4e4e4;*/
+   padding:10px 2px 10px 8px;
+    }
+input[type=text] {
+width:240px;
+}
+
