@@ -2,3 +2,4 @@ D:\Temp\Disk\MyDemoProjects\Everywhere\NetFrame45\NetFrame45\bin\NetFrame45.dll
 D:\Temp\Disk\MyDemoProjects\Everywhere\NetFrame45\NetFrame45\bin\NetFrame45.pdb
 D:\Temp\Disk\MyDemoProjects\Everywhere\NetFrame45\NetFrame45\obj\Debug\NetFrame45.dll
 D:\Temp\Disk\MyDemoProjects\Everywhere\NetFrame45\NetFrame45\obj\Debug\NetFrame45.pdb
+D:\Temp\Disk\MyDemoProjects\Everywhere\NetFrame45\NetFrame45\obj\Debug\NetFrame45.csprojResolveAssemblyReference.cache

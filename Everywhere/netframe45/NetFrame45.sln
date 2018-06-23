@@ -3,6 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetFrame45", "NetFrame45\NetFrame45.csproj", "{5373AEF4-090F-4B1F-A4FB-51E9C5D8CDC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web Sockets Test - Server", "NetFrame45\Child-WS1\server\Web Sockets Test - Server.csproj", "{576C6442-8258-4F9F-B197-E729A80A5249}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WS1", "WS1", "{7F1C8513-12F2-4F05-98A5-881043D4F1A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WS2", "WS2", "{E9D06EB7-13DB-434D-BD1C-BAC56AD7E314}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegisterPage", "NetFrame45\Child-WS2\RegisterPage\RegisterPage.csproj", "{1EAD4FAA-FDB1-4D1C-A330-214AA4B499BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,8 +21,20 @@ Global
 		{5373AEF4-090F-4B1F-A4FB-51E9C5D8CDC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5373AEF4-090F-4B1F-A4FB-51E9C5D8CDC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5373AEF4-090F-4B1F-A4FB-51E9C5D8CDC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{576C6442-8258-4F9F-B197-E729A80A5249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{576C6442-8258-4F9F-B197-E729A80A5249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{576C6442-8258-4F9F-B197-E729A80A5249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{576C6442-8258-4F9F-B197-E729A80A5249}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EAD4FAA-FDB1-4D1C-A330-214AA4B499BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EAD4FAA-FDB1-4D1C-A330-214AA4B499BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EAD4FAA-FDB1-4D1C-A330-214AA4B499BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EAD4FAA-FDB1-4D1C-A330-214AA4B499BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{576C6442-8258-4F9F-B197-E729A80A5249} = {7F1C8513-12F2-4F05-98A5-881043D4F1A3}
+		{1EAD4FAA-FDB1-4D1C-A330-214AA4B499BE} = {E9D06EB7-13DB-434D-BD1C-BAC56AD7E314}
 	EndGlobalSection
 EndGlobal

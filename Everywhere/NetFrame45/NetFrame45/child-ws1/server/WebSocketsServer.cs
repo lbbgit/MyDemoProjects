@@ -6,30 +6,20 @@ using System.Net.Sockets;
 using System.IO;
 using System.Collections;
 
+
 namespace WebSocketServer
 {
-    public class Logger
-    {
-        public bool LogEvents { get; set; }
-
-        public Logger()
-        {
-            LogEvents = true;
-        }
-
-        public void Log(string Text)
-        {
-            if (LogEvents) Console.WriteLine(Text);
-        }
-    }
-
     public enum ServerStatusLevel { Off, WaitingConnection, ConnectionEstablished };
 
-    public delegate void NewConnectionEventHandler(string loginName,EventArgs e);
-    public delegate void DataReceivedEventHandler(Object sender, string message, EventArgs e);
-    public delegate void DisconnectedEventHandler(Object sender,EventArgs e);
-    public delegate void BroadcastEventHandler(string message, EventArgs e);
+    public delegate void NewConnection_EventHandler(string loginName,EventArgs e);
+    public delegate void DataReceived_EventHandler(Object sender, string message, EventArgs e);
+    public delegate void Disconnected_EventHandler(Object sender,EventArgs e);
+    public delegate void Broadcast_EventHandler(string message, EventArgs e);
 
+
+    /// <summary>
+    /// 这个是类,还有个同名命名空间
+    /// </summary>
     public class WebSocketServer : IDisposable
     {
         private bool AlreadyDisposed;
@@ -39,31 +29,34 @@ namespace WebSocketServer
         private string Handshake;
         private StreamReader ConnectionReader;
         private StreamWriter ConnectionWriter;
-        private Logger logger;
+        private _Logger _logger;
         private byte[] FirstByte;
         private byte[] LastByte;
         private byte[] ServerKey1;
         private byte[] ServerKey2;
 
-        List<SocketConnection> connectionSocketList = new List<SocketConnection>();
+        /// <summary>
+        /// 当前连接列表
+        /// </summary>
+        List<SocketConnection> connectionSocket_List = new List<SocketConnection>();
 
         public ServerStatusLevel Status { get; private set; }
         public int ServerPort { get; set; }
         public string ServerLocation { get; set; }
         public string ConnectionOrigin { get; set; }
         public bool LogEvents { 
-            get { return logger.LogEvents; }
-            set { logger.LogEvents = value; }
+            get { return _logger.LogEvents; }
+            set { _logger.LogEvents = value; }
         }
 
-        public event NewConnectionEventHandler NewConnection;
-        public event DataReceivedEventHandler DataReceived;
-        public event DisconnectedEventHandler Disconnected;
+        public event NewConnection_EventHandler newConnection_event;
+        public event DataReceived_EventHandler dataReceived_event;
+        public event Disconnected_EventHandler disconnected_event;
 
         private void Initialize()
         {
             AlreadyDisposed = false;
-            logger = new Logger();
+            _logger = new _Logger();
 
             Status = ServerStatusLevel.Off;
             ConnectionsQueueLength = 500;
@@ -72,7 +65,7 @@ namespace WebSocketServer
             LastByte = new byte[MaxBufferSize];
             FirstByte[0] = 0x00;
             LastByte[0] = 0xFF;
-            logger.LogEvents = true;
+            _logger.LogEvents = true;
         }
 
         public WebSocketServer() 
@@ -108,17 +101,22 @@ namespace WebSocketServer
             {
                 AlreadyDisposed = true;
                 if (Listener != null) Listener.Close();
-                foreach (SocketConnection item in connectionSocketList)
+                foreach (SocketConnection item in connectionSocket_List)
                 {
                     item.ConnectionSocket.Close();
                 }
-                connectionSocketList.Clear();
+                connectionSocket_List.Clear();
                 GC.SuppressFinalize(this);
             }
         }
 
-        public static  IPAddress getLocalmachineIPAddress()
+        #region getLocalmachineIPAddress()  得到ip,优化一下,可以关闭优化
+
+        public static IPAddress oldIp = null; 
+        public static IPAddress getLocalmachineIPAddress()
         {
+            if (_CacheSetting.cacheIp && oldIp != null)  return oldIp;
+             
             string strHostName = Dns.GetHostName();
             IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);
 
@@ -126,23 +124,30 @@ namespace WebSocketServer
             {
                 //IPV4
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    if (_CacheSetting.cacheIp && oldIp == null)  oldIp = ip;
                     return ip;
+                }
             }
 
             return ipEntry.AddressList[0];
         }
 
+        #endregion
+       
+
         public void StartServer()
         {
             Char char1 = Convert.ToChar(65533);
 
-            Listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);  
-            Listener.Bind(new IPEndPoint(getLocalmachineIPAddress(), ServerPort));  
+            IPAddress ipAddress = getLocalmachineIPAddress();
+            Listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+            Listener.Bind(new IPEndPoint(ipAddress, ServerPort));  
             
-            Listener.Listen(ConnectionsQueueLength);  
+            Listener.Listen(ConnectionsQueueLength);
 
-            logger.Log(string.Format("聊天服务器启动。监听地址：{0}, 端口：{1}",getLocalmachineIPAddress(),ServerPort));
-            logger.Log(string.Format("WebSocket服务器地址: ws://{0}:{1}/chat", getLocalmachineIPAddress(), ServerPort));
+            _logger.Log(string.Format("聊天服务器启动。监听地址：{0}, 端口：{1}", ipAddress, ServerPort));
+            _logger.Log(string.Format("WebSocket服务器地址: ws://{0}:{1}/chat", ipAddress, ServerPort));
 
             while (true)
             {
@@ -153,50 +158,67 @@ namespace WebSocketServer
                     System.Threading.Thread.Sleep(100);
                     SocketConnection socketConn = new SocketConnection();
                     socketConn.ConnectionSocket = sc;
-                    socketConn.NewConnection += new NewConnectionEventHandler(socketConn_NewConnection);
-                    socketConn.DataReceived += new DataReceivedEventHandler(socketConn_BroadcastMessage);
-                    socketConn.Disconnected += new DisconnectedEventHandler(socketConn_Disconnected);
+                    socketConn.NewConnection += new NewConnection_EventHandler(socketConn_NewConnection);
+                    socketConn.DataReceived += new DataReceived_EventHandler(socketConn_BroadcastMessage);
+                    socketConn.Disconnected += new Disconnected_EventHandler(socketConn_Disconnected);
 
+                    //异步读取消息
                     socketConn.ConnectionSocket.BeginReceive(socketConn.receivedDataBuffer,
                                                              0, socketConn.receivedDataBuffer.Length, 
-                                                             0, new AsyncCallback(socketConn.ManageHandshake), 
+                                                             0, 
+                                                             new AsyncCallback(socketConn.ManageHandshake), //CallBack
                                                              socketConn.ConnectionSocket.Available);
-                    connectionSocketList.Add(socketConn);
+                    connectionSocket_List.Add(socketConn);
                 }
             }
         }
 
-        void socketConn_Disconnected(Object sender, EventArgs e)
+        #region 连接三宝 + 消息发送,上个函数的
+       
+        /// <summary>
+        /// 连接,触发Event
+        /// </summary> 
+        void socketConn_NewConnection(string name, EventArgs e)
         {
-            SocketConnection sConn = sender as SocketConnection;
-            if (sConn != null)
-            {
-                Send(string.Format("【{0}】离开了聊天室！", sConn.Name));
-                sConn.ConnectionSocket.Close();
-                connectionSocketList.Remove(sConn);
-            }
+            if (newConnection_event != null)
+                newConnection_event(name, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// 
+        /// </summary> 
         void socketConn_BroadcastMessage(Object sender, string message, EventArgs e)
         {
             if (message.IndexOf("login:") != -1)
             {
-                SocketConnection sConn = sender as SocketConnection;
-                sConn.Name = message.Substring(message.IndexOf("login:") + "login:".Length);
-                message = string.Format("欢迎【{0}】来到聊天室！",message.Substring(message.IndexOf("login:") + "login:".Length));
+                SocketConnection _currentUserConn = sender as SocketConnection;
+                _currentUserConn.Name = message.Substring(message.IndexOf("login:") + "login:".Length);
+                message = string.Format("欢迎【{0}】来到聊天室！", message.Substring(message.IndexOf("login:") + "login:".Length));
             }
             Send(message);
         }
 
-        void socketConn_NewConnection(string name, EventArgs e)
+        /// <summary>
+        /// 断开,则提示离开,关闭连接,从列表移除
+        /// </summary> 
+        void socketConn_Disconnected(Object sender, EventArgs e)
         {
-            if (NewConnection != null)
-                NewConnection(name,EventArgs.Empty);
+            SocketConnection _currentUserConn = sender as SocketConnection;
+            if (_currentUserConn != null)
+            {
+                Send(string.Format("【{0}】离开了聊天室！", _currentUserConn.Name));
+                _currentUserConn.ConnectionSocket.Close();
+                connectionSocket_List.Remove(_currentUserConn);
+            }
         }
 
+
+        /// <summary>
+        /// 发送消息,每个客户的SocketConnection ConnectionSocket,都需要使用以下
+        /// </summary> 
         public void Send(string message)
         {
-            foreach (SocketConnection item in connectionSocketList)
+            foreach (SocketConnection item in connectionSocket_List)
             {
                 if (!item.ConnectionSocket.Connected) return;
                 try
@@ -213,12 +235,15 @@ namespace WebSocketServer
                         item.ConnectionSocket.Send(LastByte);
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    logger.Log(ex.Message);
+                    _logger.Log(ex.Message);
                 }
             }
         }
+ 
+        #endregion
+    
     }
 }
 

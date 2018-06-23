@@ -1,0 +1,64 @@
+﻿<html>
+<head>
+    <script src="../Js/DMain.js"></script>
+	<script>
+	//toDataURL()是canvas对象自身的方法而不是环境对象的 
+	let canvas = document.getElementById('myCanvas');
+let cxt = canvas.getContext('2d');
+let l = canvas.width/2;
+const PI = Math.PI;
+cxt.translate(l, l);
+
+let createTaiChi = () => {
+    cxt.clearRect(-l, -l, l, l);
+    cxt.arc(0, 0, l, 0, 2*PI, 0);
+    cxt.stroke();
+    cxt.beginPath();
+    cxt.arc(0, -l/2, l/2, -PI/2, PI/2, 0);
+    cxt.arc(0, l/2, l/2, 3/2*PI, PI/2, 1);
+    cxt.arc(0, 0, l, PI/2, PI*3/2, 0);
+    cxt.fill();
+    cxt.beginPath();
+    cxt.fillStyle = '#fff';
+    cxt.arc(0, -l/2, l/7, 0, PI*2, 0);
+    cxt.fill();
+    cxt.beginPath();
+    cxt.fillStyle = '#000';
+    cxt.arc(0, l/2, l/7, 0, PI*2, 0);
+    cxt.fill();
+};
+
+createTaiChi();
+
+var getCanvas=function(){
+	let data = canvas.toDataURL();
+	console.log(data);
+	
+	let img = document.createElement('img');
+	img.src = data;
+	document.body.appendChild(img);
+}
+	</script>
+	<style>
+	#myCanvas {
+    width: 250px;
+    height: 250px;
+    margin: 100px;
+    animation: rotate 3s linear infinite;
+}
+@keyframes rotate{
+    0% {
+        transform: rotateZ(0);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+	</style>
+</head>
+<body>
+<input type="button" onclick="getCanvas();" value="getC" />
+	<canvas id="myCanvas" width=500 height=500></canvas>
+</body>
+</html> 
+ 

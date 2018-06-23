@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+    <script>
+        var ws; 
+        $().ready(function () {
+            //do it
+            try {
+                if ("WebSocket" in window) {   //判断浏览器是否支持WebSocket
+                    socket = new WebSocket("ws://localhost:13458/Socket/SocketHandler.ashx"); //socket连接服务端地址
+                }
+            }
+            catch (ex) {
+                log("您的浏览器不支持WebSocket，请切换到更高版本 或用chrome firefox");
+                return;
+            }
+
+            //相应的socket事件 
+            //socket建立连接
+            socket.onopen = function () {
+                //连接成功，将消息广播出去
+                isSocketConnect = true;
+                $("#btnWs").val("断开");
+                sendSocketMessage(Event, "进入聊天室");
+            }
+            //socket得到服务端广播的消息
+            socket.onmessage = function (event) {
+                Log(event.data);
+            }
+            //socket连接关闭
+            socket.onclose = function () {
+                Log("socket closed!");
+            }
+            //socket连接出现错误
+            socket.onerror = function (event) {
+                Log("socket connect error");
+            }
+
+
+
+            $('#conn').click(function () {
+                //ws = new WebSocket('ws://' + window.location.hostname + ':' + window.location.port + '/Handler1.ashx?user=' + $("#user").val());
+                ws = new WebSocket('ws://127.0.0.1:29508/Handler1.ashx?user=' + $("#user").val());
+                //var host = 'ws://192.168.85.128:8085/api/WSChat?user='+$("#user").val();
+                //var host = "ws://192.168.85.128:8085/api/WSChat";
+                //webSocket = new WebSocket(host);
+
+                $('#msg').append('<p>正在连接</p>');
+
+                ws.onopen = function () {
+                    $('#msg').append('<p>已经连接</p>');
+                }
+                ws.onmessage = function (evt) {
+                    $('#msg').append('<p>' + evt.data + '</p>');
+                }
+                ws.onerror = function (evt) {
+                    $('#msg').append('<p>' + JSON.stringify(evt) + '</p>');
+                }
+                ws.onclose = function () {
+                    $('#msg').append('<p>已经关闭</p>');
+                }
+            });
+
+            $('#close').click(function () {
+                ws.close();
+            });
+
+            $('#send').click(function () {
+                if (ws.readyState == WebSocket.OPEN) {
+                    ws.send($("#to").val() + "|" + $('#content').val());
+                }
+                else {
+                    $('#tips').text('连接已经关闭');
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <input id="user" type="text" />
+        <input id="conn" type="button" value="连接" />
+        <input id="close" type="button"  value="关闭"/><br />
+        <span id="tips"></span>
+        <input id="content" type="text" />
+        <input id="send" type="button"  value="发送"/><br />
+        <input id="to" type="text" />目的用户
+        <div id="msg">
+        </div>
+    </div>
+</body>
+</html>

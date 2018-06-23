@@ -1,0 +1,56 @@
+﻿<link rel="stylesheet" media="(device-height: 480px) and (-webkit-min-device-pixel-ratio:2)" href="iphone4.css" />
+
+<link rel="stylesheet" media="(device-height: 568px)and (-webkit-min-device-pixel-ratio:2)" href="iphone5.css" />
+
+<link rel="stylesheet" media="(device-height: 667px)and (-webkit-min-device-pixel-ratio:2)" href="iphone6.css" />
+
+<link rel="stylesheet" media="(device-height: 736px)and (-webkit-min-device-pixel-ratio:2)" href="iphone6p.css" />
+
+var isPhone4inches,isPhone5inches,isPhone6inches,isPhone6pinches;
+isPhone4inches = (window.screen.height==480);
+
+isPhone5inches = (window.screen.height==568);
+
+isPhone6inches = (window.screen.height==667);
+
+isPhone6pinches = (window.screen.height==736);
+
+
+@media (device-height:480px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone4/4s */
+    .class{}
+}
+
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone5 */
+    .class{}
+}
+
+
+@media (device-height:667px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone6 */
+    .class{}
+}
+
+@media (device-height:736px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone6 Plus */
+    .class{}
+}
+----------------------------
+@media screen and (判断属性){ CSS样式选择器 } 
+----------------------------
+需要注意是CSS代码顺序，由大到小排版CSS（判断浏览器宽度越大越放前）
+因为逻辑关系，@media 判断CSS排错将导致判断失效。
+
+<link rel="stylesheet" type="text/css" href="styleB.css"  media="screen and (min-width: 600px) and (max-width: 800px)">
+意思是当屏幕的宽度大于600小于800时，应用styleB.css
+<link rel="stylesheet" type="text/css" href="styleA.css" media="screen and (min-width: 400px)">
+意思是当屏幕的宽度大于等于400px的时候，应用styleA.css
+
+@media screen and (max-width: 600px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+  .class {  background: #ccc; }
+}
+<!--[if lt IE 9]> 
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script> 
+<![endif]--> 
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+

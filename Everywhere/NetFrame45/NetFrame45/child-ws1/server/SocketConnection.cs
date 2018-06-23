@@ -6,9 +6,12 @@ using System.Collections;
 using System.Security.Cryptography;
 namespace WebSocketServer
 {
+    /// <summary>
+    /// 连接,服务器一个,每个用户呢,各开一个
+    /// </summary>
     public class SocketConnection
     {
-        private Logger logger;
+        private _Logger _logger;
 
         private string name;
         public string Name
@@ -37,13 +40,13 @@ namespace WebSocketServer
         private byte[] ServerKey2;
 
 
-        public event NewConnectionEventHandler NewConnection;
-        public event DataReceivedEventHandler DataReceived;
-        public event DisconnectedEventHandler Disconnected;
+        public event NewConnection_EventHandler NewConnection;
+        public event DataReceived_EventHandler DataReceived;
+        public event Disconnected_EventHandler Disconnected;
 
         public SocketConnection()
         {
-            logger = new Logger();
+            _logger = new _Logger();
             MaxBufferSize = 1024*100;
             receivedDataBuffer = new byte[MaxBufferSize];
             FirstByte = new byte[MaxBufferSize];
@@ -76,7 +79,7 @@ namespace WebSocketServer
                 if (!this.isDataMasked)
                 {
                     // Web Socket protocol: messages are sent with 0x00 and 0xFF as padding bytes
-                    System.Text.UTF8Encoding decoder = new System.Text.UTF8Encoding();
+                    System.Text.UTF8Encoding decoder = _CacheSetting.cacheUtf8Encoding ?  null : new System.Text.UTF8Encoding();
                     int startIndex = 0;
                     int endIndex = 0;
 
@@ -88,7 +91,7 @@ namespace WebSocketServer
                     if (endIndex == MaxBufferSize - 1) endIndex = MaxBufferSize;
 
                     // Get the message
-                    messageReceived = decoder.GetString(receivedDataBuffer, startIndex, endIndex - startIndex);
+                    messageReceived =(_CacheSetting.cacheUtf8Encoding ? _CacheSetting.utf8Encoding : decoder).GetString(receivedDataBuffer, startIndex, endIndex - startIndex);
                 }
                 else
                 {
@@ -98,7 +101,7 @@ namespace WebSocketServer
                 if ((messageReceived.Length == MaxBufferSize && messageReceived[0] == Convert.ToChar(65533)) ||
                     messageReceived.Length == 0)
                 {
-                    logger.Log("接受到的信息 [\"" + string.Format("logout:{0}",this.name) + "\"]");
+                    _logger.Log("接受到的信息 [\"" + string.Format("logout:{0}",this.name) + "\"]");
                     if (Disconnected != null)
                         Disconnected(this, EventArgs.Empty);
                 }
@@ -106,7 +109,7 @@ namespace WebSocketServer
                 {
                     if (DataReceived != null)
                     {
-                        logger.Log("接受到的信息 [\"" + messageReceived + "\"]");
+                        _logger.Log("接受到的信息 [\"" + messageReceived + "\"]");
                         DataReceived(this, messageReceived, EventArgs.Empty);
                     }
                     Array.Clear(receivedDataBuffer, 0, receivedDataBuffer.Length);
@@ -115,8 +118,8 @@ namespace WebSocketServer
             }
             catch(Exception ex)
             {
-                logger.Log(ex.Message);
-                logger.Log("Socket连接将会被终止。");
+                _logger.Log(ex.Message);
+                _logger.Log("Socket连接将会被终止。");
                 if (Disconnected != null)
                     Disconnected(this, EventArgs.Empty);
             }
@@ -155,11 +158,20 @@ namespace WebSocketServer
             Array.Copy(ServerKey2, 0, concatenatedKeys, 4, 4);
             Array.Copy(last8Bytes, 0, concatenatedKeys, 8, 8);
 
+            if (_CacheSetting.cacheMD5) return _CacheSetting.md5.ComputeHash(concatenatedKeys);
+
             // MD5 Hash
             System.Security.Cryptography.MD5 MD5Service = System.Security.Cryptography.MD5.Create();
             return MD5Service.ComputeHash(concatenatedKeys);
         }
 
+
+
+
+        /// <summary>
+        /// 异步读取消息,の回调
+        /// </summary>
+        /// <param name="status"></param>
         public void ManageHandshake(IAsyncResult status)
         {
             string header = "Sec-WebSocket-Version:";
@@ -196,12 +208,12 @@ namespace WebSocketServer
 
             string[] ClientHandshakeLines = ClientHandshake.Split(new string[] { Environment.NewLine }, System.StringSplitOptions.RemoveEmptyEntries);
 
-            logger.Log("新的连接请求来自" + ConnectionSocket.LocalEndPoint + "。正在准备连接 ...");
+            _logger.Log("新的连接请求来自" + ConnectionSocket.LocalEndPoint + "。正在准备连接 ...");
 
             // Welcome the new client
             foreach (string Line in ClientHandshakeLines)
             {
-                logger.Log(Line);
+                _logger.Log(Line);
                 if (Line.Contains("Sec-WebSocket-Key1:"))
                     BuildServerPartialKey(1, Line.Substring(Line.IndexOf(":") + 2));
                 if (Line.Contains("Sec-WebSocket-Key2:"))
@@ -223,20 +235,20 @@ namespace WebSocketServer
             Array.Copy(HandshakeText, serverHandshakeResponse, HandshakeText.Length);
             Array.Copy(serverKey, 0, serverHandshakeResponse, HandshakeText.Length, 16);
 
-            logger.Log("发送握手信息 ...");
+            _logger.Log("发送握手信息 ...");
             ConnectionSocket.BeginSend(serverHandshakeResponse, 0, HandshakeText.Length + 16, 0, HandshakeFinished, null);
-            logger.Log(Handshake);
+            _logger.Log(Handshake);
         }
 
+        public static String MagicKEY = "MjU4RUFGQTUtRTkxNC00N0RBLTk1Q0EtQzVBQjBEQzg1QjEx";
         public static String ComputeWebSocketHandshakeSecurityHash09(String secWebSocketKey)
         {
-            const String MagicKEY = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
             String secWebSocketAccept = String.Empty;
             // 1. Combine the request Sec-WebSocket-Key with magic key.
-            String ret = secWebSocketKey + MagicKEY;
+            String ret = secWebSocketKey + (_CacheSetting.useSMIN ? _CacheSetting.SMIN : MagicKEY);
             // 2. Compute the SHA1 hash
-            SHA1 sha = new SHA1CryptoServiceProvider();
-            byte[] sha1Hash = sha.ComputeHash(Encoding.UTF8.GetBytes(ret));
+            byte[] sha1Hash = (_CacheSetting.cacheSHA1? _CacheSetting.sha1 : new SHA1CryptoServiceProvider()).ComputeHash(Encoding.UTF8.GetBytes(ret));
+             
             // 3. Base64 encode the hash
             secWebSocketAccept = Convert.ToBase64String(sha1Hash);
             return secWebSocketAccept;

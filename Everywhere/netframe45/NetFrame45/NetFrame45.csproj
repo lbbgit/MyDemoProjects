@@ -58,18 +58,89 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1.html" />
+    <Content Include="Child-WS1\clinet\jquery-min.js" />
+    <Content Include="Child-WS1\clinet\websocketclient.html" />
+    <Content Include="Child-WS3\chatdb.txt" />
+    <Content Include="Child-WS3\images\bcolor.gif" />
+    <Content Include="Child-WS3\images\bgButton.gif" />
+    <Content Include="Child-WS3\images\bgMenubar.gif" />
+    <Content Include="Child-WS3\images\bgMenubar2.gif" />
+    <Content Include="Child-WS3\images\bold.gif" />
+    <Content Include="Child-WS3\images\center.gif" />
+    <Content Include="Child-WS3\images\code.gif" />
+    <Content Include="Child-WS3\images\color.gif" />
+    <Content Include="Child-WS3\images\colortag.gif" />
+    <Content Include="Child-WS3\images\disclist.gif" />
+    <Content Include="Child-WS3\images\email.gif" />
+    <Content Include="Child-WS3\images\family.gif" />
+    <Content Include="Child-WS3\images\fontsize.gif" />
+    <Content Include="Child-WS3\images\image.gif" />
+    <Content Include="Child-WS3\images\italic.gif" />
+    <Content Include="Child-WS3\images\left.gif" />
+    <Content Include="Child-WS3\images\numberlist.gif" />
+    <Content Include="Child-WS3\images\right.gif" />
+    <Content Include="Child-WS3\images\showbo.css" />
+    <Content Include="Child-WS3\images\space.gif" />
+    <Content Include="Child-WS3\images\strikethrough.gif" />
+    <Content Include="Child-WS3\images\underline.gif" />
+    <Content Include="Child-WS3\images\upload.gif" />
+    <Content Include="Child-WS3\images\url.gif" />
+    <Content Include="Child-WS3\index.html" />
+    <Content Include="Child-WS3\js\editor.js" />
+    <Content Include="Child-WS3\js\lib.js" />
+    <Content Include="Child-WS3\op.asp" />
+    <Content Include="Child-WS3\text.txt" />
+    <Content Include="child-WS4\Ajax.js" />
+    <Content Include="child-WS4\AjaxServer.aspx" />
+    <Content Include="child-WS4\App_Data\Chat.mdb" />
+    <Content Include="child-WS4\Chat.aspx" />
+    <Content Include="child-WS4\ChatDetail.aspx" />
+    <Content Include="child-WS4\Global.asax" />
+    <Content Include="child-WS4\Login.aspx" />
+    <Content Include="child-WS4\UserReg.aspx" />
+    <Content Include="child-WS4\源码之家说明.txt" />
+    <Content Include="child-WS4\源码必读.txt" />
     <Content Include="Web.config" />
+    <Content Include="test.html" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Child-WS3\App_Code\Ajax.cs" />
+    <Compile Include="child-WS4\AjaxServer.aspx.cs">
+      <DependentUpon>AjaxServer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="child-WS4\App_Code\SQLHelper.cs" />
+    <Compile Include="child-WS4\App_Code\User.cs" />
+    <Compile Include="child-WS4\Chat.aspx.cs">
+      <DependentUpon>Chat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="child-WS4\ChatDetail.aspx.cs">
+      <DependentUpon>ChatDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="child-WS4\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="child-WS4\UserReg.aspx.cs">
+      <DependentUpon>UserReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Handler1.ashx.cs">
       <DependentUpon>Handler1.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Class.cs" />
+    <Compile Include="test.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Handler1.ashx" />
+    <Content Include="Child-WS3\op.ashx" />
+    <Content Include="Child-WS3\op.php" />
+    <Content Include="Child-WS3\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="child-WS4\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

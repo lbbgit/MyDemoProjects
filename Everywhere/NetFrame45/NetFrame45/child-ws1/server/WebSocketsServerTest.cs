@@ -5,6 +5,9 @@ namespace WebSocketServer
 {
     class WebSocketServerTest : IDisposable
     {
+        /// <summary>
+        /// 独一无二的Server(可以多个实例的,但这里只建一个)
+        /// </summary>
         private WebSocketServer WSServer;
         public WebSocketServerTest()
         {
@@ -30,8 +33,8 @@ namespace WebSocketServer
 
         public void Start()
         {
-            WSServer.NewConnection += new NewConnectionEventHandler(WSServer_NewConnection);
-            WSServer.Disconnected += new DisconnectedEventHandler(WSServer_Disconnected);
+            WSServer.newConnection_event += new NewConnection_EventHandler(WSServer_NewConnection);
+            WSServer.disconnected_event += new Disconnected_EventHandler(WSServer_Disconnected);
             WSServer.StartServer();
         }
 
